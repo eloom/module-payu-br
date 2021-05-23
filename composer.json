@@ -1,0 +1,44 @@
+{
+  "name": "eloom/module-payu-br",
+  "description": "Processa pagamentos com cartões de crédito, tokenização e boleto bancário com PayU Brasil para Magento 2",
+  "homepage": "https://www.eloom.com.br/payu",
+  "keywords": [
+    "magento",
+    "magento 2",
+    "commerce",
+    "ecommerce",
+    "e-commerce",
+    "payu",
+    "payu brazil",
+    "payment",
+    "shop",
+    "eloom"
+  ],
+  "authors": [
+    {
+      "name": "eloom",
+      "email": "contato@eloom.com.br"
+    }
+  ],
+  "support": {
+    "email": "contato@eloom.com.br",
+    "issues": "https://github.com/eloom/module-payu-br/issues"
+  },
+  "require": {
+    "php": "~7.3|~7.4",
+    "magento/framework": "103.0.*",
+    "eloom/module-payu": "dev-main"
+  },
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "src/module-payu-br/registration.php"
+    ],
+    "psr-4": {
+      "Eloom\\PayUBr\\": "src/module-payu-br"
+    }
+  }
+}
