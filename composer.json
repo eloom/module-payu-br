@@ -25,8 +25,8 @@
     "issues": "https://github.com/eloom/module-payu-br/issues"
   },
   "require": {
-    "php": "~7.3|~7.4",
-    "magento/framework": "103.0.*",
+    "php": "~7.2|~7.3|~7.4",
+    "magento/framework": "102.0.*|103.0.*",
     "eloom/module-payu": "dev-main"
   },
   "license": [
