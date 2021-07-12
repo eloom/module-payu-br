@@ -2,12 +2,11 @@
 
 A PayU é uma solução completa em pagamentos online, presente em quatro continentes. A PayU oferece serviços financeiros para compradores e vendedores pela internet.
 
-## Licença
+## Pagamentos via voucher
+Processa pagamentos com Boleto Bancário
 
-## Cartões de Crédito + Tokenização
-
-#### PayU Brasil
-American Express, Diners, Mastercard, Visa, Elo, Hipercard e Boleto Bancário
+## Pagamentos com cartões de crédito + One Click Buy(Tokenização)
+Instale [PayU Latam](https://github.com/eloom/module-payu).
 
 ## Links
 
