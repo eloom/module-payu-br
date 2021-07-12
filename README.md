@@ -14,5 +14,5 @@ American Express, Diners, Mastercard, Visa, Elo, Hipercard e Boleto Bancário
 * [Web site](https://eloom.tech/payu-latam)
 * [Documentação](https://docs.eloom.tech/payu-latam)
 * [Issue tracker](https://github.com/eloom/module-payu-br/issues)
-* [Composer packages](https://packagist.org/packages/eloom/module-payu-br)
+* [Composer](https://app.repman.io/organization/eloom/package/eba091da-9645-439c-88ee-4ee0d7ba52b6/details)
 * [Código fonte](https://github.com/eloom/module-payu-br)
