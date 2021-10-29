@@ -16,13 +16,13 @@ namespace Eloom\PayUBr\Gateway\Response\Payment;
 
 use Eloom\PayU\Api\Data\OrderPaymentPayUInterface;
 use Eloom\PayU\Gateway\PayU\Enumeration\PayUTransactionState;
-use Eloom\PayUBr\Gateway\Config\Boleto\Config;
+use Eloom\PayUBr\Gateway\Config\Pix\Config;
 use Magento\Payment\Gateway\Helper\SubjectReader;
 use Magento\Payment\Gateway\Response\HandlerInterface;
 use Magento\Sales\Api\Data\OrderPaymentInterface;
 use Magento\Sales\Model\Order;
 
-class BoletoAuthorisationDetailsHandler implements HandlerInterface {
+class PixAuthorisationDetailsHandler implements HandlerInterface {
 
 	private $config;
 
@@ -46,9 +46,9 @@ class BoletoAuthorisationDetailsHandler implements HandlerInterface {
 		$payment->setLastTransId($transaction->transactionId);
 		$payment->setAdditionalInformation('payuOrderId', $transaction->orderId);
 		$payment->setAdditionalInformation('transactionId', $transaction->transactionId);
-		$payment->setAdditionalInformation('paymentLink', $transaction->extraParameters->URL_PAYMENT_RECEIPT_HTML);
-		$payment->setAdditionalInformation('pdfLink', $transaction->extraParameters->URL_PAYMENT_RECEIPT_PDF);
-		$payment->setAdditionalInformation('barCode', $transaction->extraParameters->BAR_CODE);
+		$payment->setAdditionalInformation('expirationDate', $transaction->extraParameters->EXPIRATION_DATE);
+		$payment->setAdditionalInformation('qrCodeEmv', $transaction->extraParameters->QRCODE_EMV);
+		$payment->setAdditionalInformation('qrCodeImageBase64', $transaction->extraParameters->QRCODE_IMAGE_BASE64);
 
 		/**
 		 * Limpa dados do Cartão, se houver
@@ -67,37 +67,6 @@ class BoletoAuthorisationDetailsHandler implements HandlerInterface {
 		$payment->setAdditionalInformation('installments', null);
 		$payment->setAdditionalInformation('installmentAmount', null);
 		$payment->setAdditionalInformation('ccBank', null);
-		
-		try {
-			$storeId = $payment->getOrder()->getStoreId();
-			$today = new \DateTime();
-			$todayFmt = $today->format('Y-m-d\TH:i:s');
-			$dayOfWeek = date("w", strtotime($todayFmt));
-			$incrementDays = null;
-
-			switch ($dayOfWeek) {
-				case 4:
-					$incrementDays = $this->config->getCancelOnThursday($storeId);
-					break;
-
-				case 5:
-					$incrementDays = $this->config->getCancelOnFriday($storeId);
-					break;
-
-				case 6:
-					$incrementDays = $this->config->getCancelOnSaturday($storeId);
-					break;
-
-				default:
-					$incrementDays = $this->config->getCancelOnSunday($storeId);
-					break;
-			}
-			$totalDays = $this->config->getExpiration($storeId) + $incrementDays;
-			$cancellationDate = strftime("%Y-%m-%d %H:%M:%S", strtotime("$todayFmt +$totalDays day"));
-			$payment->setCancelAt($cancellationDate);
-		} catch (\Exception $e) {
-
-		}
 		$payment->setIsTransactionPending(true);
 		$payment->setIsTransactionClosed(false);
 		$payment->setShouldCloseParentTransaction(false);

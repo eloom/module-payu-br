@@ -6,11 +6,18 @@
 			<argument name="boletoConfig" xsi:type="object">Eloom\PayUBr\Gateway\Config\Boleto\Config</argument>
 		</arguments>
 	</type>
+	<type name="Eloom\PayUBr\Model\Ui\Pix\ConfigProvider">
+		<arguments>
+			<argument name="config" xsi:type="object">Eloom\PayU\Gateway\Config\Config</argument>
+			<argument name="pixConfig" xsi:type="object">Eloom\PayUBr\Gateway\Config\Pix\Config</argument>
+		</arguments>
+	</type>
 
 	<type name="Magento\Checkout\Model\CompositeConfigProvider">
 		<arguments>
 			<argument name="configProviders" xsi:type="array">
 				<item name="eloom_payments_payu_boleto_config_provider" xsi:type="object">Eloom\PayUBr\Model\Ui\Boleto\ConfigProvider</item>
+				<item name="eloom_payments_payu_pix_config_provider" xsi:type="object">Eloom\PayUBr\Model\Ui\Pix\ConfigProvider</item>
 			</argument>
 		</arguments>
 	</type>

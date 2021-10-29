@@ -12,9 +12,9 @@
 */
 declare(strict_types=1);
 
-namespace Eloom\PayUBr\Block\Boleto;
+namespace Eloom\PayUBr\Block\Pix;
 
-use Eloom\PayUBr\Gateway\Config\Boleto\Config;
+use Eloom\PayUBr\Gateway\Config\Pix\Config;
 use Magento\Payment\Helper\Data;
 
 class Form extends \Magento\Payment\Block\Form {

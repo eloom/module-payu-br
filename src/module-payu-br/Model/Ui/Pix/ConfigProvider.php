@@ -12,9 +12,9 @@
 */
 declare(strict_types=1);
 
-namespace Eloom\PayUBr\Model\Ui\Boleto;
+namespace Eloom\PayUBr\Model\Ui\Pix;
 
-use Eloom\PayUBr\Gateway\Config\Boleto\Config as BoletoConfig;
+use Eloom\PayUBr\Gateway\Config\Pix\Config as PixConfig;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\Escaper;
 use Magento\Framework\Session\SessionManagerInterface;
@@ -22,7 +22,7 @@ use Magento\Framework\View\Asset\Repository;
 
 class ConfigProvider implements ConfigProviderInterface {
 
-	const CODE = 'eloom_payments_payu_boleto';
+	const CODE = 'eloom_payments_payu_pix';
 
 	protected $assetRepo;
 
@@ -35,11 +35,11 @@ class ConfigProvider implements ConfigProviderInterface {
 	public function __construct(Repository              $assetRepo,
 	                            SessionManagerInterface $session,
 	                            Escaper                 $escaper,
-	                            BoletoConfig            $boletoConfig) {
+	                            PixConfig               $pixConfig) {
 		$this->assetRepo = $assetRepo;
 		$this->session = $session;
 		$this->escaper = $escaper;
-		$this->config = $boletoConfig;
+		$this->config = $pixConfig;
 	}
 
 	public function getConfig() {
@@ -53,7 +53,7 @@ class ConfigProvider implements ConfigProviderInterface {
 					'isActive' => $isActive,
 					'instructions' => $this->getInstructions($storeId),
 					'url' => [
-						'logo' => $this->assetRepo->getUrl('Eloom_PayUBr::images/boleto.svg')
+						'logo' => $this->assetRepo->getUrl('Eloom_PayUBr::images/pix.svg')
 					]
 				]
 			];
