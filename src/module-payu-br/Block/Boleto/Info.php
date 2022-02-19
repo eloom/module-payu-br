@@ -6,7 +6,7 @@
 * @category     elOOm
 * @package      Modulo PayUBr
 * @copyright    Copyright (c) 2021 Ã©lOOm (https://eloom.tech)
-* @version      1.0.3
+* @version      1.0.4
 * @license      https://eloom.tech/license
 *
 */
