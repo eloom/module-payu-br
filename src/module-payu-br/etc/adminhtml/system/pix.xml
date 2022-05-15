@@ -23,11 +23,12 @@
 			<config_path>payment/eloom_payments_payu_pix/specificcountry</config_path>
 			<can_be_empty>1</can_be_empty>
 		</field>
-		<field id="expiration" translate="label tooltip" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
-			<label>Expiration Days</label>
+		<field id="expiration" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+			<label>Expiration</label>
 			<frontend_class>required-entry validate-number</frontend_class>
+			<source_model>Eloom\PayUBr\Block\Adminhtml\Config\Source\Hours</source_model>
 			<config_path>payment/eloom_payments_payu_pix/expiration</config_path>
-			<tooltip>In days</tooltip>
+			<tooltip>In hours</tooltip>
 		</field>
 		<field id="instructions" translate="label" type="textarea" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
 			<label>Instructions</label>

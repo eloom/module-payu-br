@@ -5,8 +5,8 @@
 * 
 * @category     elOOm
 * @package      Modulo PayUBr
-* @copyright    Copyright (c) 2021 Ã©lOOm (https://eloom.tech)
-* @version      1.0.4
+* @copyright    Copyright (c) 2022 Ã©lOOm (https://eloom.tech)
+* @version      2.0.0
 * @license      https://eloom.tech/license
 *
 */
@@ -51,7 +51,7 @@ class PixDataBuilder implements BuilderInterface {
 		$payment = $paymentDataObject->getPayment();
 		$storeId = $payment->getOrder()->getStoreId();
 
-		$expiration = new \DateTime('now +' . $this->config->getExpiration($storeId) . ' day');
+		$expiration = new \DateTime('now +' . $this->config->getExpiration($storeId) . ' hour');
 
 		return [AuthorizeDataBuilder::TRANSACTION => [
 			self::PAYMENT_METHOD => PaymentMethod::memberByKey('pix')->getCode(),

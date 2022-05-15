@@ -50,7 +50,7 @@
 				<can_void>1</can_void>
 				<can_details>1</can_details>
 				<payment_action>initialize</payment_action>
-				<expiration>1</expiration>
+				<expiration>2</expiration>
 				<currency>BRL</currency>
 				<instructions><![CDATA[Ao finalizar seu pedido, você verá o QR Code ou o código do PIX para efetuar o pagamento pelo aplicativo de sua instituição financeira.]]></instructions>
 				<min_order_total>15.00</min_order_total>
