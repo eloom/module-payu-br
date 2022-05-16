@@ -32,6 +32,8 @@ class ConfigProvider implements ConfigProviderInterface {
 
 	protected $escaper;
 
+	private static $allowedCurrencies = ['BRL', 'USD'];
+
 	public function __construct(Repository            $assetRepo,
 	                            Escaper               $escaper,
 	                            BoletoConfig          $boletoConfig,
@@ -49,7 +51,7 @@ class ConfigProvider implements ConfigProviderInterface {
 		$isActive = $this->config->isActive($storeId);
 		if ($isActive) {
 			$currency = $store->getCurrentCurrencyCode();
-			if ('BRL' != $currency) {
+			if (!in_array($currency, self::$allowedCurrencies)) {
 				return ['payment' => [
 					self::CODE => [
 						'message' =>  sprintf("Currency %s not supported.", $currency)
