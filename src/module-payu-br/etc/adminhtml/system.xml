@@ -4,7 +4,7 @@
 		<section id="payment">
 			<group id="eloom_payu_latam">
 				<include path="Eloom_PayUBr::system/boleto.xml"/>
-				<!--<include path="Eloom_PayUBr::system/pix.xml"/>-->
+				<include path="Eloom_PayUBr::system/pix.xml"/>
 			</group>
 		</section>
 	</system>
